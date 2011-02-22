@@ -21,3 +21,17 @@ class TestSimpleHash < Test::Unit::TestCase
 		assert @h.has_key? @h.weighted_sample
 	end
 end
+
+class TestIterations < Test::Unit::TestCase
+	def setup
+		@h = {a:1, b:2, c:3}
+	end
+	
+	def test_multiple_results
+		assert @h.weighted_sample(2).all?{ |ws| @h.has_key? ws }
+	end
+	
+	def test_more_results_than_keys
+		assert @h.weighted_sample(10).all?{ |ws| @h.has_key? ws }
+	end
+end
