@@ -1,4 +1,4 @@
-require_relative 'weighted_sample'
+require_relative '../lib/weighted_sample'
 require 'test/unit'
 
 class TestSimpleHash < Test::Unit::TestCase
